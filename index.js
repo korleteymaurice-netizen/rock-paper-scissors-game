@@ -63,4 +63,22 @@ scissorsBtn.addEventListener("click", () => {
 let humanChoice = getHumanChoice();
 let computerChoice = getComputerChoice();
 
+const resultsDiv = document.querySelector("#results");
+
+function playRound(playerSelection) {
+    const computerSelection = getComputerChoice();
+
+    if (playerSelection === computerSelection) {
+        resultsDiv.textContent = "It's a tie!";
+    } else if (
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+    ) {
+        resultsDiv.textContent = "You win!";
+    } else {
+        resultsDiv.textContent = "You lose!";
+    }
+}
+
 playRound(humanChoice, computerChoice);
